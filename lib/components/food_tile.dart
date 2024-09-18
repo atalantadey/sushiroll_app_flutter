@@ -13,23 +13,25 @@ class FoodTile extends StatelessWidget {
       onTap: ontap,
       child: Container(
         margin: const EdgeInsets.only(left: 20),
-        padding: const EdgeInsets.all(25),
+        padding: const EdgeInsets.all(15),
         decoration: BoxDecoration(
           color: Colors.grey.shade100,
           borderRadius: BorderRadius.circular(20),
         ),
+        width: 170,
+        height: 170,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             //Image
             Image.asset(
               food.image,
-              height: 140,
+              height: 100,
             ),
             //Price
             Text(
               food.name,
-              style: GoogleFonts.dmSerifDisplay(fontSize: 20),
+              style: GoogleFonts.dmSerifDisplay(fontSize: 15),
             ),
             //text
             SizedBox(
@@ -53,7 +55,6 @@ class FoodTile extends StatelessWidget {
                 ],
               ),
             ),
-            //rating
           ],
         ),
       ),

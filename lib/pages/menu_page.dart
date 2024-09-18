@@ -16,8 +16,7 @@ class MenuPage extends StatefulWidget {
 }
 
 class _MenuPageState extends State<MenuPage> {
-  //FOOD MENU
-
+//Food menu
 //navigate to food item details page
   void navigateToFoodDetails(int index) {
     final shop = context.read<Shop>();
@@ -44,10 +43,13 @@ class _MenuPageState extends State<MenuPage> {
         title: const Text('Tokyo'),
         actions: [
           IconButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/cartpage');
-              },
-              icon: const Icon(Icons.shopping_cart_rounded))
+            onPressed: () {
+              Navigator.pushNamed(context, '/cartpage');
+            },
+            icon: const Icon(
+              Icons.shopping_cart_rounded,
+            ),
+          ),
         ],
       ),
       body: Column(
@@ -58,7 +60,9 @@ class _MenuPageState extends State<MenuPage> {
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Container(
               decoration: BoxDecoration(
-                  color: primaryColor, borderRadius: BorderRadius.circular(16)),
+                color: primaryColor,
+                borderRadius: BorderRadius.circular(16),
+              ),
               margin: const EdgeInsets.symmetric(horizontal: 0),
               padding: const EdgeInsets.all(25),
               child: Row(
@@ -87,32 +91,32 @@ class _MenuPageState extends State<MenuPage> {
           ),
           //SEARCH BAR
           Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(10.0),
             child: TextField(
               decoration: InputDecoration(
                 hintText: 'Search for food, restaurents, dishes...',
-                hintStyle: TextStyle(color: Colors.grey.shade500),
+                hintStyle: TextStyle(color: Colors.red.shade900),
                 border: OutlineInputBorder(
                   borderSide: const BorderSide(color: Colors.white),
                   borderRadius: BorderRadius.circular(18),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: const BorderSide(color: Colors.grey),
+                  borderSide: const BorderSide(color: Colors.white),
                   borderRadius: BorderRadius.circular(18),
                 ),
                 enabledBorder: OutlineInputBorder(
-                  borderSide: const BorderSide(color: Colors.grey),
+                  borderSide: const BorderSide(color: Colors.red),
                   borderRadius: BorderRadius.circular(18),
                 ),
               ),
             ),
           ),
           const SizedBox(
-            height: 10,
+            height: 5,
           ),
           //MENU LIST
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 18),
+            padding: const EdgeInsets.symmetric(horizontal: 15),
             child: Text(
               'FOOD MENU',
               style: GoogleFonts.dmSerifDisplay(
@@ -126,49 +130,104 @@ class _MenuPageState extends State<MenuPage> {
           ),
           //POPULAR FOOD
           Expanded(
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: foodMenu.length,
-              itemBuilder: (context, index) => FoodTile(
-                food: foodMenu[index],
-                ontap: () => navigateToFoodDetails(index),
+            child: Container(
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: foodMenu.length,
+                itemBuilder: (context, index) => FoodTile(
+                  food: foodMenu[index],
+                  ontap: () => navigateToFoodDetails(index),
+                ),
               ),
             ),
           ),
+
           const SizedBox(
-            height: 25,
+            height: 15,
           ),
-          Container(
-            decoration: BoxDecoration(
-              color: Colors.grey[200],
-              borderRadius: BorderRadius.circular(12),
-            ),
-            margin: const EdgeInsets.only(left: 25, right: 25, bottom: 25),
-            padding: const EdgeInsets.all(20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          SingleChildScrollView(
+            child: Column(
               children: [
-                Image.asset(
-                  'lib/images/tekkamaki.png',
-                  height: 70,
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.grey[200],
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  margin:
+                      const EdgeInsets.only(left: 25, right: 25, bottom: 25),
+                  padding: const EdgeInsets.all(20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Shanghai: Flavours of China Town',
+                            style: GoogleFonts.dmSerifDisplay(fontSize: 20),
+                          ),
+                          Text(
+                            '\$20.99',
+                            style: TextStyle(color: Colors.grey[600]),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Tekkamaki Sushi',
-                      style: GoogleFonts.dmSerifDisplay(fontSize: 20),
-                    ),
-                    Text(
-                      '\$20.99',
-                      style: TextStyle(color: Colors.grey[600]),
-                    )
-                  ],
-                ), //heart
-                const Icon(
-                  Icons.favorite_border_outlined,
-                  color: Colors.grey,
-                  size: 28,
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.grey[200],
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  margin:
+                      const EdgeInsets.only(left: 25, right: 25, bottom: 25),
+                  padding: const EdgeInsets.all(20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Golden Joy',
+                            style: GoogleFonts.dmSerifDisplay(fontSize: 20),
+                          ),
+                          Text(
+                            '\$20.99',
+                            style: TextStyle(color: Colors.grey[600]),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.grey[200],
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  margin:
+                      const EdgeInsets.only(left: 25, right: 25, bottom: 25),
+                  padding: const EdgeInsets.all(20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Shanghai: Flavours of China Town',
+                            style: GoogleFonts.dmSerifDisplay(fontSize: 20),
+                          ),
+                          Text(
+                            '\$20.99',
+                            style: TextStyle(color: Colors.grey[600]),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
